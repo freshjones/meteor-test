@@ -6,7 +6,7 @@
  
     {{> projectlist}}
 
-	<button class="showModal">Show</button>
+	
 </body>
 
 
@@ -19,9 +19,14 @@
       <ul>
       {{#each projects}}
       	<li>{{name}} - {{client}}
+      	<button class="showModal">Show</button>
+    	<button class="hideModal">Hide</button>
       {{/each}}
       </ul>
     </div>
+    {{/if}}
+    
+    
     
     {{#if getSession 'showModal'}}
 	  {{> singleProject}}
@@ -29,8 +34,8 @@
 	
 </template>
 
-<template name="singleproject">
-
+<template name="singleProject">
+{{this}}
 <input type="text" name="name" placeholder="Project Name" value="{{name}}">
 <input type="text" name="client" placeholder="Client" value="{{client}}">
 

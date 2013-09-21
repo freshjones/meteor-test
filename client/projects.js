@@ -13,3 +13,26 @@ Template.projectlist.loading = function () {
 Template.projectlist.projects = function () {
 	  return Projects.find();
 };
+
+
+Template.projectlist.events({
+
+  'click .showModal': function (event) {
+ 
+	  event.preventDefault();
+	  
+	  Session.set('showModal', true);
+	  
+	  console.log(this._id);
+	  
+  }
+,
+'click .hideModal': function (event) {
+	 
+	  event.preventDefault();
+	  
+	  Session.set('showModal', false);
+	  
+	  
+}
+});
