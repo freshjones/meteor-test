@@ -1,0 +1,37 @@
+<head>
+  <title>Projects</title>
+</head>
+
+<body>
+ 
+    {{> projectlist}}
+
+	<button class="showModal">Show</button>
+</body>
+
+
+<template name="projectlist">
+	
+	{{#if loading}}
+	loading dude
+	{{else}}
+    <div id="lists">
+      <ul>
+      {{#each projects}}
+      	<li>{{name}} - {{client}}
+      {{/each}}
+      </ul>
+    </div>
+    
+    {{#if getSession 'showModal'}}
+	  {{> singleProject}}
+	{{/if}}
+	
+</template>
+
+<template name="singleproject">
+
+<input type="text" name="name" placeholder="Project Name" value="{{name}}">
+<input type="text" name="client" placeholder="Client" value="{{client}}">
+
+</template>
